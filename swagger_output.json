@@ -1,0 +1,358 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [{
+      "name": "App",
+      "description": "App adalah routes yang ditujukan untuk user biasa"
+    },
+    {
+      "name": "CMS",
+      "description": "CMS adalah routes yang digunakan untuk pengaturan aplikasi melalui admin"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/app/auth/register": {
+      "post": {
+        "tags": [
+          "App"
+        ],
+        "description": "",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "password": {
+                "example": "any"
+              },
+              "email": {
+                "example": "any"
+              }
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/app/auth/login-password": {
+      "post": {
+        "tags": [
+          "App"
+        ],
+        "description": "",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "example": "any"
+              },
+              "password": {
+                "example": "any"
+              }
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/app/auth/login-google": {
+      "post": {
+        "tags": [
+          "App"
+        ],
+        "description": "",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "id_token": {
+                "example": "any"
+              }
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/app/auth/login-facebook": {
+      "post": {
+        "tags": [
+          "App"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/app/wishlist/": {
+      "post": {
+        "tags": [
+          "App"
+        ],
+        "description": "",
+        "parameters": [{
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "movieId": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/app/user/send-forgot-pass-token": {
+      "post": {
+        "tags": [
+          "App"
+        ],
+        "description": "",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "example": "any"
+              }
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/app/user/verify-forgot-pass-token": {
+      "post": {
+        "tags": [
+          "App"
+        ],
+        "description": "",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "example": "any"
+              },
+              "token": {
+                "example": "any"
+              }
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/app/user/change-pass": {
+      "post": {
+        "tags": [
+          "App"
+        ],
+        "description": "",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "password": {
+                "example": "any"
+              },
+              "password_confirmation": {
+                "example": "any"
+              },
+              "email": {
+                "example": "any"
+              },
+              "token": {
+                "example": "any"
+              }
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/cms/auth/login": {
+      "post": {
+        "tags": [
+          "CMS"
+        ],
+        "description": "",
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "example": "any"
+              },
+              "password": {
+                "example": "any"
+              }
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/cms/admin/": {
+      "post": {
+        "tags": [
+          "CMS"
+        ],
+        "description": "",
+        "parameters": [{
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                },
+                "roleId": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/cms/movie/": {
+      "post": {
+        "tags": [
+          "CMS"
+        ],
+        "description": "",
+        "parameters": [{
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "poster": {
+                  "example": "any"
+                },
+                "title": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "rating": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "CMS"
+        ],
+        "description": "",
+        "parameters": [{
+          "name": "authorization",
+          "in": "header",
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
